@@ -1,0 +1,5 @@
+---
+- hosts: arminers
+  tasks:
+   - name: "exec start miner bash script"
+     shell: 'sh  /data/start-miner.sh'
