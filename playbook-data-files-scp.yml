@@ -1,0 +1,50 @@
+---
+- hosts: localhost
+  vars:
+    ar_file_name:
+  gather_facts: no
+  tasks:
+   - name: "find /data ar files"
+     find:
+       paths:  /data/20210329/
+       patterns: '*.ar'
+     register: ar_files
+
+
+   - name: "scp  ar file to  10.188.19.2"
+     shell: " scp    {{ item.path }}   root@10.188.19.2:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+   - name: "scp  ar file to  10.188.19.3"
+     shell: " scp    {{ item.path }}   root@10.188.19.3:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+   - name: "scp  ar file to  10.188.19.4"
+     shell: " scp    {{ item.path }}   root@10.188.19.4:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+
+   - name: "scp  ar file to  10.188.19.5"
+     shell: " scp    {{ item.path }}   root@10.188.19.5:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+   - name: "scp  ar file to  10.188.19.6"
+     shell: " scp    {{ item.path }}   root@10.188.19.6:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+   - name: "scp  ar file to  10.188.19.7"
+     shell: " scp    {{ item.path }}   root@10.188.19.7:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+   - name: "scp  ar file to  10.188.19.8"
+     shell: " scp    {{ item.path }}   root@10.188.19.8:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+
+   - name: "scp  ar file to  10.188.19.9"
+     shell: " scp    {{ item.path }}   root@10.188.19.9:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
+
+   - name: "scp  ar file to  10.188.19.10"
+     shell: " scp    {{ item.path }}   root@10.188.19.10:{{ item.path }}  "
+     with_items: "{{ ar_files.files }}"
