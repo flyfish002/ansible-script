@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  vars:
+    ar_file_name:
+
+  tasks:
+   - name: "find /data ar files"
+     find:
+       paths:  /data/20210824/
+       patterns: '*.ar'
+       recurse: yes
+     register: ar_files
+
+   - name: "list  ar files"
+     template:
+       src:  jinja2-ar-files.txt.j2
+       dest: ar_file_name.txt
